@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Alterado para um cinza escuro (Dark Mode) */
+  background: #212121;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 70px;
+  border-radius: 7px;
+  /* Sombra ajustada para aparecer no fundo escuro (mais forte) */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card p {
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Cores dos cards */
+.card:nth-child(1) {
+  background: rgb(253, 52, 86);
+}
+
+.card:nth-child(2) {
+  background: rgb(52, 183, 253);
+}
+
+.card:nth-child(3) {
+  background: rgb(17, 199, 29);
+}
+
+/* Lógica avançada com :has() */
+.wrapper:has(.card:hover) .card:not(:hover) {
+  filter: blur(5px);
+  transform: scale(0.9, 0.9);
+  opacity: 0.7; /* Adicionei opacidade para destacar ainda mais o hover */
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); /* Sombra aumenta no hover */
+  z-index: 10;
+}
